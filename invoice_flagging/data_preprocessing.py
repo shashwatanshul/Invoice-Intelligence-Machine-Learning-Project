@@ -5,7 +5,7 @@ from sklearn.preprocessing import StandardScaler
 import joblib
 
 def load_invoice_data():
-    conn = sqlite3.connect('/Users/shashwatsingh/Downloads/Inventory Analysis Project/Inventory-Invoice-Analytics/data/inventory.db')
+    conn = sqlite3.connect('data/inventory.db')
 
     query = """
     WITH purchase_agg AS (
