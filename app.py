@@ -19,7 +19,7 @@ st.set_page_config(
 # Header Section
 # -------------------------------------------------------
 st.markdown("""
-# 📦 Vendor Invoice Intelligence Portal  
+# Vendor Invoice Intelligence Portal  
 ### AI-Driven Freight Cost Prediction & Invoice Risk Flagging
 
 This internal analytics portal leverages machine learning to  
@@ -33,7 +33,7 @@ st.divider()
 # -------------------------------------------------------
 # Sidebar
 # -------------------------------------------------------
-st.sidebar.title("🔍 Model Selection")
+st.sidebar.title("Model Selection")
 selected_model = st.sidebar.radio(
     "Choose Prediction Module",
     [
@@ -45,16 +45,16 @@ selected_model = st.sidebar.radio(
 st.sidebar.markdown("""
 ---
 **Business Impact**
-- 📉 Improved cost forecasting  
-- 🧾 Reduced invoice fraud & anomalies  
-- ⚙️ Faster finance operations
+- Improved cost forecasting  
+- Reduced invoice fraud & anomalies  
+- Faster finance operations
 """)
 
 # -------------------------------------------------------
 # Freight Cost Prediction
 # -------------------------------------------------------
 if selected_model == "Freight Cost Prediction":
-    st.subheader("🚚 Freight Cost Prediction")
+    st.subheader("Freight Cost Prediction")
 
     st.markdown("""
     **Objective:**  
@@ -67,12 +67,12 @@ if selected_model == "Freight Cost Prediction":
 
         with col1:
             dollars = st.number_input(
-                "💰 Invoice Dollars",
+                "Invoice Dollars",
                 min_value=1.0,
                 value=18500.0
             )
 
-        submit_freight = st.form_submit_button("🔮 Predict Freight Cost")
+        submit_freight = st.form_submit_button("Predict Freight Cost")
 
     if submit_freight:
         input_data = {
@@ -84,7 +84,7 @@ if selected_model == "Freight Cost Prediction":
         st.success("Prediction completed successfully.")
 
         st.metric(
-            label="📊 Estimated Freight Cost",
+            label="Estimated Freight Cost",
             value=f"${prediction[0]:,.2f}"
         )
 
@@ -94,7 +94,7 @@ if selected_model == "Freight Cost Prediction":
 # Invoice Flag Prediction
 # -------------------------------------------------------
 else:
-    st.subheader("🚨 Invoice Manual Approval Prediction")
+    st.subheader("Invoice Manual Approval Prediction")
 
     st.markdown("""
     **Objective:**  
@@ -136,7 +136,7 @@ else:
                 value=2476.0
             )
 
-        submit_flag = st.form_submit_button("🧠 Evaluate Invoice Risk")
+        submit_flag = st.form_submit_button("Evaluate Invoice Risk")
 
     if submit_flag:
         input_data = {
@@ -152,6 +152,6 @@ else:
         is_flagged = bool(flag_prediction[0])
 
         if is_flagged:
-            st.error("🚨 Invoice requires **MANUAL APPROVAL**")
+            st.error("Invoice requires **MANUAL APPROVAL**")
         else:
-            st.success("✅ Invoice is **SAFE for Auto-Approval**")
+            st.success("Invoice is **SAFE for Auto-Approval**")
